@@ -16,6 +16,26 @@ module.exports = {
     // },
     // shared: 'lodash'
   },
+  module: {
+    rules: [{
+        test: /\.less$/,
+        // 从后往前
+        use: [
+          "style-loader", //用于在html文档中创建一个stle标签 引入js
+          "css-loader", //将css编译为commonjs 模块
+          "less-loader" //将less编译为css
+        ]
+    },{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env']
+        }
+      }
+    }]
+  },
   devtool: 'inline-source-map', //source-map
   devServer: {
     static: './dist', //修改配置文件，告知 dev server，从什么位置查找文件。
@@ -30,7 +50,7 @@ module.exports = {
   // },
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist2'),
+    path: path.resolve(__dirname, 'dist'),
     //clean: true, //清理dist文件夹
   },
   // optimization: { //提取公共依赖

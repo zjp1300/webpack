@@ -8,3 +8,10 @@ console.log(add(1,2))
 console.log(sub(1,2))
 console.log(a)
 console.log(moudle3.div(1,2), moudle3.mul(1,2))
+let ab = 12
+const ba = 14
+
+const foo = () => {
+  console.log(123123)
+}
+foo()
